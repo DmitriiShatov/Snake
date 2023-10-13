@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 100%;
+    height: 1100px;
+    border: 1px solid black;
+}
+#field{
+    width: 800px;
+    margin: 30px auto;
+    height: 400px;
+    background-color: aquamarine;
+    border: 5px solid black;
+    display: block;
+
+}
+.header{
+    width: 100%;
+    height: 100px;
+    display: inline;
+    display: flex;
+    justify-content: space-between;
+    background-color: aqua;
+    border-radius: 0 0 40px 40px;
+    border-bottom: 2px solid black;
+    
+}
+.inputs{
+    width: 68%;
+    margin: auto 20px;
+    font-size: medium;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+}
+
+.inputs label{
+    margin-left: 20px;
+}
+
+.score_start{
+    width: 25%;
+    margin: auto 20px;
+  
+    font-size: small;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+}
+
+.score_start button{
+    margin-left: 20px;
+    font-size: medium;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+    background-color: black;
+    width: 100px;
+    height: 30px;
+    color: white;
+    border: 1px solid grey;
+    border-radius: 15px;
+}
+
+.score_start span{
+    font-size: medium;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+}
