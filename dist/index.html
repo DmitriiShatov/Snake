@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+    </head> 
+    <body style="overflow: hidden;">
+        <div class="container">
+            <div class="header">
+                <div class="inputs">
+                    <label for="width">Розмір</label>
+                    <input type="range" id="width" name="width" value="800" min="200" max="1000"/>
+                    <label for="speed">Швидкість</label>
+                    <input type="range" id="speed" name="speed" value="1" min="1" max="10">
+                    <label for="color">Колір</label>
+                    <input type="color" id="color" name="color" value="#fcba03">
+                </div>
+                <div class="score_start"> 
+                    <span id="name_score">SCORE: <span id="score">0</span></span>
+                    <span id="best_result">BEST: <span id="best">0</span></span>
+                    <button id="start_pause">START</button>
+                </div>
+            </div>
+            <canvas id="field">
+
+            </canvas>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>
