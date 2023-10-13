@@ -51,11 +51,11 @@ function setFailed(ctx, button, width, speed, color){
     }
 }
 
-function changePositionOfFood(food,snake){
+function changePositionOfFood(field_width,field_height,food,snake){
     for(let i = 0; i < snake.snake.length; i++){                        // change position food if coodi
         if(snake.snake[i].x == food.x && snake.snake[i] == food.y){
             food = new Food(field_width,field_height,box);
-            changePositionOfFood(food,snake);
+            changePositionOfFood(field_width,field_height,food,snake);
         }
         else{
             return food;
@@ -119,7 +119,7 @@ button.addEventListener("click", function(){
             if(rect != undefined){
                 ctx.clearRect(rect.x, rect.y, box, box);    
             }
-            food = changePositionOfFood(food,snake);
+            food = changePositionOfFood(field_width,field_height,food,snake);
             ctx.drawImage(food.foodImg,food.x,food.y);
             
         
