@@ -112,15 +112,12 @@ button.addEventListener("click", function(){
         let changePositionOfFood = (field_width,field_height,food,snake) => {
             for(let i = 0; i < snake.snake.length; i++){                     // change position food if coodi
                 if(snake.snake[i].x == food.x && snake.snake[i].y == food.y){
-                     
                     food = new Food(field_width,field_height,box);
                     return changePositionOfFood(field_width,field_height,food,snake);
                 }
-                else{
-                    
-                    return food;
-                }
             }
+            
+            return food;
         }
 
         function drawGame(){                                // draw game 
