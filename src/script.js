@@ -13,6 +13,10 @@ let score = document.getElementById("score");
 let speed = document.getElementById("speed");
 let button = document.getElementById("start_pause");
 let best_score = document.getElementById('best');
+let saved_best_score = localStorage.getItem('best');
+if(saved_best_score){
+    best_score.innerHTML = saved_best_score;
+}
 let isPausa = false;
 let box = 16;
 let game;
@@ -51,17 +55,7 @@ function setFailed(ctx, button, width, speed, color){
     }
 }
 
-function changePositionOfFood(field_width,field_height,food,snake){
-    for(let i = 0; i < snake.snake.length; i++){                        // change position food if coodi
-        if(snake.snake[i].x == food.x && snake.snake[i] == food.y){
-            food = new Food(field_width,field_height,box);
-            changePositionOfFood(field_width,field_height,food,snake);
-        }
-        else{
-            return food;
-        }
-    }
-}
+
 
 button.addEventListener("click", function(){
     if(this.innerHTML.toLocaleLowerCase() == 'start'){
@@ -115,11 +109,26 @@ button.addEventListener("click", function(){
 
         let rect;
 
+        let changePositionOfFood = (field_width,field_height,food,snake) => {
+            for(let i = 0; i < snake.snake.length; i++){                     // change position food if coodi
+                if(snake.snake[i].x == food.x && snake.snake[i].y == food.y){
+                     
+                    food = new Food(field_width,field_height,box);
+                    return changePositionOfFood(field_width,field_height,food,snake);
+                }
+                else{
+                    
+                    return food;
+                }
+            }
+        }
+
         function drawGame(){                                // draw game 
             if(rect != undefined){
                 ctx.clearRect(rect.x, rect.y, box, box);    
             }
-            food = changePositionOfFood(field_width,field_height,food,snake);
+            
+            
             ctx.drawImage(food.foodImg,food.x,food.y);
             
         
@@ -131,7 +140,7 @@ button.addEventListener("click", function(){
             
             if(snakeX == food.x && snakeY == food.y){
                 score.innerHTML = ++snake.score;
-                food = new Food(field_width,field_height,box);
+                food = changePositionOfFood(field_width,field_height,food,snake);
             }
             else{
                 rect = snake.sneakPop();
