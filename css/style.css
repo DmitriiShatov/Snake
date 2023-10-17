@@ -11,9 +11,11 @@
     width: 800px;
     margin: 30px auto;
     height: 400px;
-    background-color: aquamarine;
     border: 5px solid black;
     display: block;
+    background-image: url('../img/grass.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
 .header{

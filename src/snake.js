@@ -32,7 +32,21 @@ class Snake{
 
     changeColor = () => {
         this.ctx.fillStyle = 'black';
-        this.ctx.fillRect(this.snake[0].x,this.snake[0].y,this.box,this.box);
+        this.ctx.beginPath();
+        if(this.direction == '' || this.direction == 'up'){
+            this.ctx.roundRect(this.snake[0].x,this.snake[0].y,this.box,this.box,[10,10,0,0]);
+        }
+        else if(this.direction == 'left'){
+            this.ctx.roundRect(this.snake[0].x,this.snake[0].y,this.box,this.box,[10,0,0,10]);
+        }
+        else if(this.direction == 'right'){
+            this.ctx.roundRect(this.snake[0].x,this.snake[0].y,this.box,this.box,[0,10,10,0]);
+        }
+        else if(this.direction == 'down'){
+            this.ctx.roundRect(this.snake[0].x,this.snake[0].y,this.box,this.box,[0,0,10,10]);
+        }
+        this.ctx.fill();
+        this.ctx.stroke();
         for(let i = 1; i < this.snake.length; i++){
             this.ctx.fillStyle = this.snake_color;
             this.ctx.fillRect(this.snake[i].x,this.snake[i].y,this.box,this.box);

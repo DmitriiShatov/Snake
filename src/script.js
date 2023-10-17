@@ -122,7 +122,7 @@ button.addEventListener("click", function(){
 
         function drawGame(){                                // draw game 
             if(rect != undefined){
-                ctx.clearRect(rect.x, rect.y, box, box);    
+                ctx.clearRect(0,0,field_width,field_height);    
             }
             
             
